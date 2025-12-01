@@ -40,7 +40,6 @@ public final class ConcurrentGUI extends JFrame {
         panel.add(stop);
         this.getContentPane().add(panel);
         this.setVisible(true);
-        
         final Agent agent = new Agent();
         new Thread(agent).start();
         up.addActionListener(e -> agent.upCounting());
@@ -71,7 +70,7 @@ public final class ConcurrentGUI extends JFrame {
                 try {
                     final var nextText = Integer.toString(this.counter);
                     SwingUtilities.invokeAndWait(() -> ConcurrentGUI.this.display.setText(nextText));
-                    if(direction) {
+                    if (direction) {
                         this.counter++;
                     } else {
                         this.counter--;
@@ -90,11 +89,11 @@ public final class ConcurrentGUI extends JFrame {
             this.stop = true;
         }
 
-        public void upCounting () {
+        public void upCounting() {
             this.direction = true;
         }
 
-        public void downCounting () {
+        public void downCounting() {
             this.direction = false;
         }
     }
